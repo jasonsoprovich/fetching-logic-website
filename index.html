@@ -1,3 +1,4 @@
+\index.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,9 +15,18 @@
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
+  <div id="loader" class="loader">
+    <div id="codeit" class="main-logo">
+      <span class="material-symbols-outlined">code</span>
+      <span id="animated-text"></span>
+    </div>
+  </div>
+
   <div class="container">
     <header>
       <div class="header-logo">
@@ -39,6 +49,8 @@
       </div>
     </main>
   </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
