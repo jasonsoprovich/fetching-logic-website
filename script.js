@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const codeIcon = document.querySelector('.loader .code-icon .material-symbols-outlined');
-  const animatedText = document.getElementById('animated-text');
+  // const animatedText = document.getElementById('animated-text');
   const mainLogo = document.querySelector('.main-logo');
   
   if (mainLogo) {
@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
       startDelay: 300,
       waitUntilVisible: true,
       loop: false,
-      afterComplete: function(instance) {
-        $('.loader').fadeOut(800, function() {
+      afterComplete: function() {
+        $('.loader').fadeOut(0, function() {
           animateMainLogo();
         });
       }

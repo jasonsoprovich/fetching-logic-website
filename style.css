@@ -106,6 +106,7 @@ main {
   border-radius: 8px;
 }
 
+/* Loader container */
 .loader {
   position: fixed;
   width: 100%;
@@ -115,8 +116,70 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-color);
+  background-color: var(--background-color, #ffffff);
   z-index: 1040;
+}
+
+/* Main logo inside the loader */
+.loader .main-logo {
+  display: flex;
+  align-items: center;
+  /* Align items vertically */
+  gap: 1.2rem;
+  /* Space between the icon and text */
+  font-size: 4.8rem;
+  /* Match the main logo size */
+  font-weight: 700;
+  color: var(--logo-color, #333);
+}
+
+/* Ensure the loader’s main-logo container uses flex, and target both spans for center alignment */
+.loader .main-logo {
+  display: flex;
+  align-items: center;
+  /* vertically center children */
+  gap: 1.2rem;
+  font-size: 4.8rem;
+  font-weight: 700;
+  color: var(--logo-color, #333);
+}
+
+.loader .main-logo span {
+  display: inline-flex;
+  /* use inline-flex so they behave similar to inline elements */
+  align-items: center;
+  /* vertically center the content */
+  line-height: 1;
+  /* make sure line-height is consistent */
+}
+
+/* Code icon inside the loader */
+.loader .material-symbols-outlined {
+  font-size: 3.8rem;
+  /* Match the main logo icon size */
+  background-color: var(--logo-color, #333);
+  color: var(--white, #fff);
+  padding: 0.4rem;
+  border-radius: 8px;
+  display: flex;
+  /* Use flexbox for centering */
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  /* Ensure consistent vertical alignment */
+}
+
+/* Animated text inside the loader */
+#animated-text {
+  font-size: 4.8rem;
+  /* Match the main logo text size */
+  font-weight: 700;
+  line-height: 1;
+  /* Ensure consistent vertical alignment */
+  font-family: 'Noto Sans', sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+  /* Align with the icon */
 }
 
 .loader h1#codeit {
@@ -165,4 +228,48 @@ main {
 #animated-text {
   min-height: 4.8rem;
   display: inline-block;
+}
+
+/* Use this for both the loader’s main-logo and the final main-logo */
+.main-logo,
+.loader .main-logo {
+  display: flex;
+  align-items: center;
+  /* vertically centers children */
+  gap: 1.2rem;
+  font-size: 4.8rem;
+  font-weight: 700;
+  color: var(--logo-color, #333);
+}
+
+/* Define both spans to use inline-flex with centered alignment */
+.main-logo span,
+.loader .main-logo span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* Code icon styles */
+.material-symbols-outlined {
+  font-size: 3.8rem;
+  background-color: var(--logo-color, #333);
+  color: var(--white, #fff);
+  padding: 0.4rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* Animated text styles */
+#animated-text {
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 1;
+  font-family: 'Noto Sans', sans-serif;
+  display: inline-flex;
+  vertical-align: middle;
 }
