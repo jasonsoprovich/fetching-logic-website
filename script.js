@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
   const codeIcon = document.querySelector('.loader .code-icon .material-symbols-outlined');
-  // const animatedText = document.getElementById('animated-text');
   const mainLogo = document.querySelector('.main-logo');
   
   if (mainLogo) {
@@ -21,23 +20,24 @@ document.addEventListener('DOMContentLoaded', function() {
       loop: false,
       afterComplete: function() {
         $('.loader').fadeOut(0, function() {
+          $('header').css('opacity', '1');
           animateMainLogo();
         });
       }
     })
-    .pause(300)  
-    .type('fethc')
-      .pause(350)
-      .delete(2)
-      .pause(550)
-      .type('chign')
-      .pause(750)
+      .pause(150)
+      .type('fethc')
+      .pause(150)
       .delete(2)
       .pause(300)
+      .type('chign')
+      .pause(450)
+      .delete(2)
+      .pause(100)
       .type('ng')
-      .pause(350)
+      .pause(150)
       .type('logic')
-      .pause(1500)
+      .pause(800)
       .go();
   }, 100);
   
