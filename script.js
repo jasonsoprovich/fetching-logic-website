@@ -25,8 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
     })
-      .type('fetching')
+    .pause(300)  
+    .type('fethc')
+      .pause(350)
+      .delete(2)
+      .pause(550)
+      .type('chign')
       .pause(750)
+      .delete(2)
+      .pause(300)
+      .type('ng')
+      .pause(350)
       .type('logic')
       .pause(1500)
       .go();
