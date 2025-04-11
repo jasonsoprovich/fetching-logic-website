@@ -10,9 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (isIndexPage) {
     if (sessionStorage.getItem('visited')) {
-      if (loader) {
-        loader.style.display = 'none';
-      }
+      loader.style.display = 'none';
       container.style.display = 'flex';
       header.style.opacity = '1';
     } else {
@@ -27,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function() {
           loop: false,
           afterComplete: function () {
             $('.loader').fadeOut(0, function () {
-              $('header').css('opacity', '1');
+              header.style.transition = 'opacity 0.8s ease';
+              header.style.opacity = '1';
               animateMainLogo();
             });
           }
@@ -61,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   } else {
+    // Non-index pages
     if (loader) {
       loader.style.display = 'none';
     }
