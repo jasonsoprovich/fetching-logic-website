@@ -1,22 +1,20 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const loader = document.getElementById('loader');
   const container = document.querySelector('.container');
   const header = document.querySelector('header');
-  
-  // Only run the loader animation on index.html
-  const isIndexPage = location.pathname.endsWith('index.html') || 
-                      location.pathname === '/' || 
-                      location.pathname.endsWith('/');
-  
+  const mainLogo = document.querySelector('.main-logo');
+
+  const isIndexPage = location.pathname === '/' || location.pathname.endsWith('index.html');
+  const ANIMATION_DELAY = 100;
+
   if (isIndexPage) {
     if (sessionStorage.getItem('visited')) {
-      loader.style.display = 'none';
-      container.style.display = 'flex';
-      header.style.opacity = '1';
+      if (loader) loader.style.display = 'none';
+      if (container) container.style.display = 'flex';
+      if (header) header.style.opacity = '1';
     } else {
       sessionStorage.setItem('visited', 'true');
-      
-      // Initialize the TypeIt animation for the loader
+
       setTimeout(() => {
         new TypeIt('#animated-text', {
           speed: 150,
@@ -24,11 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
           waitUntilVisible: true,
           loop: false,
           afterComplete: function () {
-            $('.loader').fadeOut(0, function () {
-              header.style.transition = 'opacity 0.8s ease';
-              header.style.opacity = '1';
-              animateMainLogo();
-            });
+            if (loader) loader.style.display = 'none';
+            if (header) header.classList.add('header-visible');
+            animateMainLogo();
           }
         })
           .pause(150)
@@ -45,26 +41,17 @@ document.addEventListener('DOMContentLoaded', function() {
           .type('logic')
           .pause(800)
           .go();
-      }, 100);
-
-      function animateMainLogo() {
-        const mainLogo = document.querySelector('.main-logo');
-        mainLogo.style.opacity = '0';
-        mainLogo.style.transform = 'translateY(20px)';
-        mainLogo.style.transition = 'opacity 1s ease, transform 1s ease';
-
-        setTimeout(() => {
-          mainLogo.style.opacity = '1';
-          mainLogo.style.transform = 'translateY(0)';
-        }, 100);
-      }
+      }, ANIMATION_DELAY);
     }
   } else {
-    // Non-index pages
-    if (loader) {
-      loader.style.display = 'none';
+    if (loader) loader.style.display = 'none';
+    if (container) container.style.display = 'flex';
+    if (header) header.style.opacity = '1';
+  }
+
+  function animateMainLogo() {
+    if (mainLogo) {
+      mainLogo.classList.add('main-logo-animate');
     }
-    container.style.display = 'flex';
-    header.style.opacity = '1';
   }
 });
