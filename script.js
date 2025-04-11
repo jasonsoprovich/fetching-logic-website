@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   if (isIndexPage) {
     if (sessionStorage.getItem('visited')) {
-      loader.style.display = 'none';
+      if (loader) {
+        loader.style.display = 'none';
+      }
       container.style.display = 'flex';
       header.style.opacity = '1';
     } else {
@@ -59,7 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   } else {
-    loader.style.display = 'none';
+    if (loader) {
+      loader.style.display = 'none';
+    }
     container.style.display = 'flex';
     header.style.opacity = '1';
   }
